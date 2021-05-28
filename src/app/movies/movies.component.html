@@ -1,0 +1,29 @@
+<h1>Peliculas</h1>
+<hr />
+
+<button class="btn btn-primary" [routerLink]="['/movie-form', 0]">Crear nueva Pelicula</button>
+
+<table class="table ">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movies$ | async">
+        <th scope="row">{{movie.id}}</th>
+        <td>{{movie.title}}</td>
+        <td>{{movie.year}}</td>
+        <td>
+          <i class="bi bi-eye-fill" [routerLink]="['/movie', movie.id]"></i>
+          <i class="bi bi-file-earmark-x-fill text-danger" (click)="deleteMovie(movie.id)" ></i>
+          <i class="bi bi-pencil" [routerLink]="['/movie-form', movie.id]"></i>
+        </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>

@@ -1,0 +1,14 @@
+<h1>Pelicula</h1>
+<button [routerLink]="'/movies'" class="btn btn-primary">Regresar a Peliculas</button>
+<hr />
+<div class="row" *ngIf="movie$ | async ; let movie">
+    <div class="col-4">
+        <img [src]="movie.cover" alt="Portada de la pelicula"  class="img-fluid"/>
+    </div>
+    <div class="col-8">
+        <h2>{{movie.title}} {{movie.year}}</h2>
+        <h3>Sinopsis: </h3>
+        <p>{{movie.synopsis}}</p>
+    </div>
+
+</div>
